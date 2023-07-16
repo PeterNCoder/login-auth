@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once("security.php");
 ?>
 
 <!DOCTYPE html>
@@ -23,13 +24,7 @@ session_start();
     <main>
 
     <?php
-    if(isset($_SESSION['username'])){
-	    echo "<p class ='border'>Hello, ".ucfirst(strtolower($_SESSION['username'])).". Welcome!</p>";
-    } else {
-        $_SESSION['errors'] = array("<p class='bad'>Please log in to view content.</p>");
-        header("location: login.php");
-        exit();
-    }
+    echo "<p>Hello, ".ucfirst(strtolower($_SESSION['username'])).". Welcome!</p>";
     ?>
 
     </main>

@@ -43,6 +43,8 @@ if(isset($errors)){
 		exit();
 	}else{
 		$_SESSION['username'] = $user;
+        $_SESSION['initialLoginTime'] = time();
+		$_SESSION['timeLastActive'] = time();
 		header("location: page.php");
 		exit();
 	}
