@@ -11,26 +11,32 @@ session_start();
     <meta name="keywords" content="Web Development, Front-End, Back-End">
     <link rel="stylesheet" href="styles/normalize-fwd.css">
     <link rel="stylesheet" href="styles/style.css">
-    <title>Page</title>
+    <title>Logout</title>
 </head>
 
 <body>
     <header>
-        <h1>Page</h1>
-        <a href="logout.php">Logout</a>
+        <h1>Logout</h1>
     </header>
 
     <main>
 
-    <?php
-    if(isset($_SESSION['username'])){
-	    echo "<p class ='border'>Hello, ".ucfirst(strtolower($_SESSION['username'])).". Welcome!</p>";
-    } else {
-        $_SESSION['errors'] = array("<p class='bad'>Please log in to view content.</p>");
-        header("location: login.php");
-        exit();
-    }
-    ?>
+        <?php
+        if (isset($_SESSION['errors'])) {
+            echo "<ul>";
+            foreach($_SESSION['errors'] as $error){
+                echo "<li>$error</li>";
+            }
+            echo "</ul>";
+            unset($_SESSION['errors']);
+        }
+
+        $_SESSION[] = array();
+        session_destroy();
+        ?>
+
+        <p>You have been logged out.</p>   
+        <p><a href="login.php">Return to the login page.</a></p>
 
     </main>
 
