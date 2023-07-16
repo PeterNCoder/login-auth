@@ -21,6 +21,17 @@ session_start();
 
     <main>
 
+        <?php
+        if (isset($_SESSION['errors'])) {
+            echo "<ul>";
+            foreach($_SESSION['errors'] as $error){
+                echo "<li>$error</li>";
+            }
+            echo "</ul>";
+            unset($_SESSION['errors']);
+        }
+        ?>
+
         <form method="POST" action="processor.php">
             <fieldset>
                 <legend>Login</legend>
