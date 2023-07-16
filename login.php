@@ -14,10 +14,27 @@
     <header>
         <h1>Login</h1>
     </header>
+
     <main>
 
-    
+        <form method="POST" action="processor.php">
+            <fieldset>
+                <legend>Login</legend>
+
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username">
+
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password">
+
+                <input type="submit" value="Log In">
+            </fieldset>               
+        </form>
 
     </main>
+
+    <footer>
+        <p>&copy; Peter Nguyen 2023</p>
+    </footer>
 </body>
 </html>
